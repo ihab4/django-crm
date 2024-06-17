@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Customer Record</h1>
+
+<div class="card">
+    <h5 class="card-header">{{ record }}</h5>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Email: </strong>{{ record.email }}</br>
+        <strong>Phone: </strong>{{ record.phone }}</br>
+        <strong>Created_at: </strong>{{ record.created_at }}</br>
+        <strong>ID: </strong>{{ record.id }}</br>
+      </p>
+      <a href="#" class="btn btn-primary">Update</a>
+      <a href="{% url 'delete' record.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+</br>
+<h2>Orders</h2>
+<h5>{{ record }}</h5>
+</br>
+
+<table class="table table-striped table-hover">
+<thead class="table-dark">
+    <tr>
+    <th scope="col">Order_ID</th>
+    <th scope="col">Product</th>
+    <th scope="col">Price</th>
+    <th scope="col">Order Date</th>
+    <th scope="col">Username</th>
+    <th scope="col">Password</th>
+    <th scope="col">Duration</th>
+    <th scope="col">Expiration Date</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th scope="row">1</th>
+    <td>prod 1</td>
+    <td>50</td>
+    <td>30/12/2023</td>
+    <td>user</td>
+    <td>pass</td>
+    <td>7 month</td>
+    <td>22/06/2024</td>
+    </tr>
+</tbody>
+</table>
+
+
+{% endblock %}
