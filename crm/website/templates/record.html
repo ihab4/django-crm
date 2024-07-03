@@ -13,7 +13,7 @@
         <strong>Created_at: </strong>{{ record.created_at }}</br>
         <strong>ID: </strong>{{ record.id }}</br>
       </p>
-      <a href="#" class="btn btn-primary">Update</a>
+      <a href="{% url 'update_record' record.id%}" class="btn btn-primary">Update</a>
       <a href="{% url 'delete' record.id %}" class="btn btn-danger">Delete</a>
     </div>
   </div>
