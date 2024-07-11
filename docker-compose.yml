@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/django
+    ports:
+      - 8000:8000
+    image: python-django-rec
+    container_name: container-rec
+    command: python3 crm/manage.py runserver 0.0.0.0:8000
