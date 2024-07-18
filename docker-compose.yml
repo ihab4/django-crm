@@ -1,10 +1,23 @@
 services:
   app:
-    build: .
+    build:
+      context: .
     volumes:
-      - .:/django
+      - static:/static
+    env_file:
+      - .env
     ports:
-      - 8000:8000
-    image: python-django-rec
-    container_name: container-rec
-    command: python3 crm/manage.py runserver 0.0.0.0:8000
+      - "8000:8000"
+
+  nginx:
+    build: ./nginx
+    image: nginx:latest
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+volumes:
+  static:

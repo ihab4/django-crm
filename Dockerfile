@@ -13,4 +13,7 @@ RUN pip install -r requirements.txt
 
 # Copy the current directory contents into the container at /app
 
+COPY . .
 
+COPY ./entrypoint.sh /
+ENTRYPOINT [ "sh", "/entrypoin.sh" ]
